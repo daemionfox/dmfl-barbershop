@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <tr class="container">
+        <table>
+            <tr>
+                <th>VIM #</th>
+                <th>Cadet</th>
+                <th>Barber</th>
+                <th>Status</th>
+                <th>&nbsp;</th>
+            </tr>
+        {% for cut in haircuts %}
+            <tr>
+                <td class="id">{{ cut.cadetbadge }}</td>
+                <td class="name">{{ cut.cadetname }}</td>
+                <td class="barber">{{ cut.barbername }}</td>
+                <td class="status">{{ cut.status }}</td>
+                <td>Buttons</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+{% endblock %}

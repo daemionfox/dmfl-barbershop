@@ -50,3 +50,11 @@
 
 # Embedded web-server pid file
 /.web-server-pid
+/docker/
+/etc/
+/.env
+/docker-compose.yaml
+/mariadb_password.txt
+/mariadb_root_password.txt
+
+app/.env*

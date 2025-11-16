@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    <div id="cadet-id">
+        {{ form_start(cadetform) }}
+        {{ form_end(cadetform) }}
+    </div>
+
+    <script>
+        document.getElementById("haircut_form_cadetbadge").focus();
+    	const target = document.querySelector("input#haircut_form_cadetbadge");
+    </script>
+
+{% endblock %}
