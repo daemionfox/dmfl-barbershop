@@ -1,0 +1,23 @@
+#resettimer {
+    position: fixed;
+    border: 1px solid white;
+    bottom: 60px;
+    right: 10px;
+    width: 120px;
+    height: 36px;
+    padding: 0;
+}
+
+#resetbar {
+    position: relative;
+    float: right;
+    width: 120px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #0a53be;
+    border-left: 1px solid white;
+    color: white;
+    margin: 0;
+}

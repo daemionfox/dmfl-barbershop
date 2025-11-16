@@ -1,7 +1,7 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <tr class="container">
+    <div class="container">
         <table>
             <tr>
                 <th>VIM #</th>
@@ -16,9 +16,40 @@
                 <td class="name">{{ cut.cadetname }}</td>
                 <td class="barber">{{ cut.barbername }}</td>
                 <td class="status">{{ cut.status }}</td>
-                <td>Buttons</td>
+                <td>
+                    {% if cut.status|upper == 'ACTIVE' or cut.status|upper == 'STARTED'%}
+                        <a href="{{ url('app_complete', { id: cut.id }) }}">Complete</a>
+                    {% else %}
+                        <a href="{{ url('app_start', { id: cut.id }) }}">Start</a>&nbsp;
+                        <a href="{{ url('app_cancel', { id: cut.id }) }}">Cancel</a>&nbsp;
+                        <a href="{{ url('app_noshow', { id: cut.id }) }}">No-Show</a>
+                    {% endif %}
+                </td>
             </tr>
         {% endfor %}
         </table>
     </div>
+    <div id="resettimer">
+        <div id="resetbar" >
+            60
+        </div>
+    </div>
+
+    <script>
+        function doTimer() {
+            let bar = document.getElementById('resetbar');
+            let currentTime = parseInt(bar.innerText);
+            currentTime--;
+            if (currentTime === 0) {
+                window.location.reload();
+            }
+            let newWidth = 2 * currentTime;
+            bar.style.width = newWidth + "px";
+            bar.innerText = currentTime;
+            setTimeout(doTimer, 1000);
+        }
+
+        doTimer();
+    </script>
+
 {% endblock %}

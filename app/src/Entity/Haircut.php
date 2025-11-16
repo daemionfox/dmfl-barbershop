@@ -75,8 +75,12 @@ class Haircut
         return $this->barbername;
     }
 
-    public function setBarbername(?string $barbername): static
+    public function setBarbername(Barber|string|null $barbername): static
     {
+        if (is_a($barbername, Barber::class)) {
+            $this->barbername = $barbername->getName();
+            return $this;
+        }
         $this->barbername = $barbername;
 
         return $this;
@@ -99,8 +103,12 @@ class Haircut
         return $this->cuttype;
     }
 
-    public function setCuttype(?string $cuttype): static
+    public function setCuttype(CutType|string|null $cuttype): static
     {
+        if (is_a($cuttype, CutType::class)) {
+            $this->cuttype = $cuttype->getType();
+            return $this;
+        }
         $this->cuttype = $cuttype;
 
         return $this;

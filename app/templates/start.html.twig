@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div id="cadet">
+        <p>Cadet: {{ cadet.name }}</p>
+        <p>VMI #: {{ cadet.badge }}</p>
+    </div>
+    <div id="start">
+        {{ form_start(startform) }}
+        {{ form_end(startform) }}
+    </div>
+
+
+{% endblock %}
