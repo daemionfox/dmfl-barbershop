@@ -58,3 +58,4 @@
 /mariadb_root_password.txt
 
 app/.env*
+/app/src/Controller/DevController.php

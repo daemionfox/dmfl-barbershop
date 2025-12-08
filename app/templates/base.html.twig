@@ -14,8 +14,12 @@
     </head>
     <body>
         {% block flashalerts %}
-            {% for flash in app.flashes() %}
-                {{ dump(flash) }}
+            {% for type, flashes in app.flashes() %}
+                {% for flash in flashes %}
+                    <div class="flash flash-{{ type }}">
+                        {{ flash }}
+                    </div>
+                {% endfor %}
             {% endfor %}
         {% endblock %}
         {% block body %}{% endblock %}
